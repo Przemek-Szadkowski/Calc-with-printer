@@ -1,0 +1,80 @@
+div.wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: 30%;
+    background-color: #ccc;
+    box-shadow: 0 0 5px 5px black;
+
+    div.screen {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-basis: 25%;
+        width: 100%;
+        background-color: cornflowerblue;
+        border: 10px solid lightblue;
+        overflow: hidden;
+
+        p {
+            font-family: 'Audiowide';
+        }
+
+        p.num {
+            flex-basis: 75%;
+            font-size: 50px;
+            padding-left: 10px;
+        }
+
+        p.opr {
+            flex-basis: 25%;
+            text-align: right;
+            font-size: 50px;
+            padding-right: 10px;
+        }
+
+    }
+
+    div.numbers {
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 75%;
+        border: 10px solid cornflowerblue;
+
+        button {
+            display: block;
+            flex-grow: 1;
+            flex-basis: 25%;
+            height: 20%;
+            border: 2px inset cornflowerblue;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+
+        button.reset {
+            background-color: rgb(146, 17, 17);
+
+            &:hover {
+                background-color: rgb(214, 0, 0);
+            }
+        }
+
+    }
+}
+
+@media (max-width: 400px) {
+    div.wrapper {
+        height: 90%;
+        width: 80%;
+    }
+}

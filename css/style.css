@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
+div.wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 70%;
+  width: 30%;
+  background-color: #ccc;
+  -webkit-box-shadow: 0 0 5px 5px black;
+          box-shadow: 0 0 5px 5px black;
+}
+
+div.wrapper div.screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  width: 100%;
+  background-color: cornflowerblue;
+  border: 10px solid lightblue;
+  overflow: hidden;
+}
+
+div.wrapper div.screen p {
+  font-family: 'Audiowide';
+}
+
+div.wrapper div.screen p.num {
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+  font-size: 50px;
+  padding-left: 10px;
+}
+
+div.wrapper div.screen p.opr {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  text-align: right;
+  font-size: 50px;
+  padding-right: 10px;
+}
+
+div.wrapper div.numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+  border: 10px solid cornflowerblue;
+}
+
+div.wrapper div.numbers button {
+  display: block;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  height: 20%;
+  border: 2px inset cornflowerblue;
+  text-align: center;
+  font-size: 30px;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+div.wrapper div.numbers button:hover {
+  background-color: #ccc;
+}
+
+div.wrapper div.numbers button.reset {
+  background-color: #921111;
+}
+
+div.wrapper div.numbers button.reset:hover {
+  background-color: #d60000;
+}
+
+@media (max-width: 400px) {
+  div.wrapper {
+    height: 90%;
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
