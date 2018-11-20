@@ -28,9 +28,17 @@ div.wrapper {
   background-color: #ccc;
   -webkit-box-shadow: 0 0 5px 5px black;
           box-shadow: 0 0 5px 5px black;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+div.wrapper.print {
+  top: 75%;
+  height: 50%;
 }
 
 div.wrapper div.screen {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,12 +48,17 @@ div.wrapper div.screen {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-preferred-size: 25%;
-      flex-basis: 25%;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
   width: 100%;
   background-color: cornflowerblue;
   border: 10px solid lightblue;
   overflow: hidden;
+}
+
+div.wrapper div.screen.off {
+  background-color: #33425f;
+  opacity: 1;
 }
 
 div.wrapper div.screen p {
@@ -57,6 +70,7 @@ div.wrapper div.screen p.num {
       flex-basis: 75%;
   font-size: 50px;
   padding-left: 10px;
+  font-size: 5vh;
 }
 
 div.wrapper div.screen p.opr {
@@ -85,7 +99,6 @@ div.wrapper div.numbers button {
           flex-grow: 1;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
-  height: 20%;
   border: 2px inset cornflowerblue;
   text-align: center;
   font-size: 30px;
@@ -98,6 +111,14 @@ div.wrapper div.numbers button:hover {
   background-color: #ccc;
 }
 
+div.wrapper div.numbers button.off {
+  color: #eee;
+}
+
+div.wrapper div.numbers button.off:hover {
+  background-color: #eee;
+}
+
 div.wrapper div.numbers button.reset {
   background-color: #921111;
 }
@@ -106,10 +127,115 @@ div.wrapper div.numbers button.reset:hover {
   background-color: #d60000;
 }
 
-@media (max-width: 400px) {
+div.wrapper div.numbers button.reset.reset.off {
+  color: #eee;
+  background-color: #eee;
+}
+
+div.wrapper div.numbers button.reset.reset.off:hover {
+  background-color: #eee;
+}
+
+div.wrapper div.numbers div.led {
+  position: absolute;
+  top: 4.5%;
+  left: 90%;
+  width: 8px;
+  height: 8px;
+  border-radius: 25px;
+  background-color: #0fc90f;
+  -webkit-box-shadow: 0 0 5px 2px #0fc90f;
+          box-shadow: 0 0 5px 2px #0fc90f;
+}
+
+div.wrapper div.numbers div.led.off {
+  background-color: #f00;
+  -webkit-box-shadow: 0 0 5px 2px red;
+          box-shadow: 0 0 5px 2px red;
+}
+
+div.printout {
+  display: none;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 28%;
+  width: 28%;
+  background-color: #fff;
+  border-left: 8px dotted black;
+  border-right: 8px dotted black;
+  -webkit-box-shadow: 0 0 0 1px grey;
+          box-shadow: 0 0 0 1px grey;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+div.printout.printout.print {
+  display: block;
+  -webkit-animation: coolPrint 7s normal both;
+          animation: coolPrint 7s normal both;
+}
+
+div.printout p {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  font-size: 2vh;
+  padding: 20px;
+  font-family: Arial;
+}
+
+@media (max-width: 400px) and (orientation: portrait) {
   div.wrapper {
     height: 90%;
     width: 80%;
+  }
+  div.wrapper div.screen p.num {
+    font-size: 30px;
+  }
+  div.wrapper div.numbers button {
+    font-size: 20px;
+  }
+  div.wrapper div.numbers div.led {
+    top: 6%;
+    width: 4px;
+    height: 4px;
+  }
+  div.printout {
+    width: 60%;
+  }
+}
+
+@-webkit-keyframes coolPrint {
+  0% {
+    top: 69%;
+  }
+  25% {
+    top: 69%;
+  }
+  50% {
+    top: 38%;
+  }
+  100% {
+    top: 38%;
+  }
+}
+
+@keyframes coolPrint {
+  0% {
+    top: 69%;
+  }
+  25% {
+    top: 69%;
+  }
+  50% {
+    top: 38%;
+  }
+  100% {
+    top: 38%;
   }
 }
 /*# sourceMappingURL=style.css.map */

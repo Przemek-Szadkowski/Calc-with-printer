@@ -9,16 +9,28 @@ div.wrapper {
     width: 30%;
     background-color: #ccc;
     box-shadow: 0 0 5px 5px black;
+    transition: 1.5s;
+
+    &.print {
+        top: 75%;
+        height: 50%;
+    }
 
     div.screen {
+        position: relative;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        flex-basis: 25%;
+        flex-basis: 30%;
         width: 100%;
         background-color: cornflowerblue;
         border: 10px solid lightblue;
         overflow: hidden;
+
+        &.off {
+            background-color: rgb(51, 66, 95);
+            opacity: 1;
+        }
 
         p {
             font-family: 'Audiowide';
@@ -28,6 +40,7 @@ div.wrapper {
             flex-basis: 75%;
             font-size: 50px;
             padding-left: 10px;
+            font-size: 5vh;
         }
 
         p.opr {
@@ -49,7 +62,7 @@ div.wrapper {
             display: block;
             flex-grow: 1;
             flex-basis: 25%;
-            height: 20%;
+            // height: 20%;
             border: 2px inset cornflowerblue;
             text-align: center;
             font-size: 30px;
@@ -59,6 +72,14 @@ div.wrapper {
             &:hover {
                 background-color: #ccc;
             }
+
+            &.off {
+                color: #eee;
+            }
+
+            &.off:hover {
+                background-color: #eee;
+            }
         }
 
         button.reset {
@@ -67,14 +88,112 @@ div.wrapper {
             &:hover {
                 background-color: rgb(214, 0, 0);
             }
+
+            &.reset.off {
+                color: #eee;
+                background-color: #eee;
+            }
+
+            &.reset.off:hover {
+                background-color: #eee;
+            }
         }
 
+        div.led {
+            position: absolute;
+            top: 4.5%;
+            left: 90%;
+            width: 8px;
+            height: 8px;
+            border-radius: 25px;
+            background-color: rgb(15, 201, 15);
+            box-shadow: 0 0 5px 2px rgb(15, 201, 15);
+        }
+
+        div.led.off {
+            background-color: #f00;
+            box-shadow: 0 0 5px 2px red;
+        }
     }
 }
 
-@media (max-width: 400px) {
+div.printout {
+    display: none;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    height: 28%;
+    width: 28%;
+    background-color: #fff;
+    border-left: 8px dotted black;
+    border-right: 8px dotted black;
+    box-shadow: 0 0 0 1px grey;
+    transition: 1.5s;
+
+
+    &.printout.print {
+        display: block;
+        animation: coolPrint 7s normal both;
+    }
+
+    p {
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        font-size: 2vh;
+        padding: 20px;
+        font-family: Arial;
+    }
+}
+
+
+@media (max-width: 400px) and (orientation: portrait) {
+
     div.wrapper {
         height: 90%;
         width: 80%;
+
+        div.screen {
+            p.num {
+                font-size: 30px;
+            }
+        }
+
+        div.numbers {
+            button {
+                font-size: 20px;
+            }
+
+            div.led {
+                top: 6%;
+                width: 4px;
+                height: 4px;
+            }
+        }
+    }
+
+    div.printout {
+        width: 60%;
+    }
+}
+
+
+@keyframes coolPrint {
+    0% {
+        top: 69%;
+    }
+
+    25% {
+        top: 69%;
+    }
+
+    50% {
+        top: 38%;
+    }
+
+    100% {
+        top: 38%;
     }
 }
