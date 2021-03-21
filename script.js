@@ -26,6 +26,7 @@ let printMemory = "";
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
         if (number.className === "number off") return;
+        if (screen.textContent.length === 10) return;
         if (dotChecker(content) === false || (content[content.length - 1] === "." || typeof content[content.length - 1] === "string")) { //nie pozwala wpisać trzech kropek w całym działaniu
             if (isAfterOutcome == false) {
                 // ta część oprócz wpisywania cyfr kontroluje również działanie kropki, tak by nie można jej było wpisać dwa razy obok siebie
@@ -70,7 +71,6 @@ numbers.forEach((number) => {
                     } else if (number.textContent === "0" && content) {
                         isAfterOutcome = false;
                         // screen.textContent = number.textContent;
-
                         content = `.`;
                         screen.textContent = content;
 
@@ -85,10 +85,8 @@ numbers.forEach((number) => {
                 } else if ((content[content.length - 1] === ".") && number.textContent === ".") {
                     return;
                 } else if ((content[content.length - 1] === ".") && number.textContent !== ".") {
-
                     content += number.textContent;
                     screen.textContent = content;
-
                 }
             }
         }
@@ -120,6 +118,7 @@ const dotChecker = (x) => {
 operators.forEach((operator) => {
     operator.addEventListener("click", () => {
         // screen.textContent += operator.textContent;
+        if (screen.textContent.length === 10) return;
         if (content[content.length - 1] !== operatorSymbol) {
             if (!operatorSymbol) {
                 if (content) {
