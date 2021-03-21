@@ -1,4 +1,4 @@
-![beginner](beginer.png)
+![beginner](beginner.png)
 
 # Calc-with-printer
 > Very simple and unfinished calc with printer simulator
